@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140122015521) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_hash"
-    t.boolean  "admin",         default: false
+    t.string   "password_digest"
+    t.boolean  "admin",           default: false
     t.integer  "calendar_id"
     t.datetime "created_at"
     t.datetime "updated_at"
