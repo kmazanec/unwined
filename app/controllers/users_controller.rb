@@ -6,7 +6,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to root_path
+    if @user.id
+      set_current_user @user
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private

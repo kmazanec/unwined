@@ -30,6 +30,11 @@ describe UsersController do
       expect{ post :create, user_params }.to change{ User.all.length }
     end
 
+    it "sets the current user" do
+      post :create, user_params
+      expect(controller.current_user.email).to eq user_params[:user][:email]
+    end
+
   end
 
 end
