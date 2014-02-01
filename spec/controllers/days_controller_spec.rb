@@ -7,15 +7,19 @@ describe DaysController do
     let(:day) { FactoryGirl.create(:day) }
 
     before do
-      get :show, day, current_user
+      get :show, user_id: current_user.id, id: day.id
     end
 
     it "responds successfully" do
       expect(response.code).to eql "200"
     end
 
-    it "renders the days show page for that user" do
+    it "renders the days show page" do
+      expect(response.body).to render_template "show"
+    end
 
+    it "renders the page for the correct user and day" do
+      expect(request.path_info).to eql "/users/#{current_user.id}/days/#{day.id}"
     end
   end
 

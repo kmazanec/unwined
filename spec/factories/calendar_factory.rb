@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :calendar do
     title Faker::Company.catch_phrase
-    user
 
     factory :calendar_with_days do
       ignore do

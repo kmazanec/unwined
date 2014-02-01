@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :day do
     date Time.now.to_date
-    text Faker::Lorem.sentence
+    comment Faker::Lorem.sentence
     calendar
 
     trait :sober do
