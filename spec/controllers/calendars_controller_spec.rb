@@ -19,7 +19,7 @@ describe CalendarsController do
 
       it "redirects to the home page" do
         get :show, id: 1
-        expect(response).to redirect_to "/"
+        expect(response).to redirect_to root_path
       end
     end
 

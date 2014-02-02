@@ -8,4 +8,9 @@ WineTracker::Application.routes.draw do
     resources :days, only: [:show, :edit, :update]
   end
 
+  get "/login", to: "sessions#new", as: :login
+  post "/logout", to: "sessions#destroy", as: :logout
+
+  resources :sessions, only: [:create]
+
 end
