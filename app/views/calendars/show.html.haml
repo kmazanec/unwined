@@ -1,0 +1,32 @@
+- @calendar.days.each do |day|
+  .day
+    %ul
+      %li= day.date
+      %li
+        Savings:
+        = day.savings
+      %li
+        Beer:
+        = day.beer
+      %li
+        Wine:
+        = day.wine
+      %li
+        Liquor:
+        = day.liquor
+
+= form_tag user_days_path(current_user.id), method: :post do
+  = date_field_tag "day[date]", Time.now.to_date
+
+  = check_box_tag "day[beer]"
+  = label_tag "day[beer]", "Beer"
+
+  = check_box_tag "day[wine]"
+  = label_tag "day[wine]", "Wine"
+
+  = check_box_tag "day[liquor]"
+  = label_tag "day[liquor]", "Liquor"
+
+  = text_field_tag "day[savings]", nil, placeholder: "Savings"
+  = text_area_tag "day[comment]", nil, placeholder: "Comment"
+  = submit_tag "Save"

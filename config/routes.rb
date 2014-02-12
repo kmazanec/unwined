@@ -5,10 +5,10 @@ WineTracker::Application.routes.draw do
   get "/calendar", to: "calendars#show", as: :calendar
 
   resources :users do
-    resources :days, only: [:show, :edit, :update]
+    resources :days, only: [:create, :show, :edit, :update]
   end
 
-  get "/login", to: "sessions#new", as: :login
+  post "/login", to: "sessions#create", as: :login
   post "/logout", to: "sessions#destroy", as: :logout
 
   resources :sessions, only: [:create]

@@ -2,8 +2,10 @@ require "spec_helper"
 
 describe DaysController do
 
+  let(:current_user) { FactoryGirl.create(:user) }
+
   describe "#show" do
-    let(:current_user) { FactoryGirl.create(:user) }
+    
     let(:day) { FactoryGirl.create(:day) }
 
     context "user logged in" do
@@ -36,6 +38,10 @@ describe DaysController do
         expect(response).to redirect_to login_path
       end
     end
+  end
+
+  describe "#create" do
+    
   end
 
 end

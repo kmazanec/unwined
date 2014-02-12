@@ -1,0 +1,8 @@
+%h1 UnWined v0.0.1
+- if logged_in?
+  = link_to "My Calendar", calendar_path
+- else
+  .login
+    = render partial: "sessions/new"
+  .signup
+    = link_to "Sign Up", new_user_path
